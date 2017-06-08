@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<title>Order List</title>
+
+<header>
+	<p style="text-align:center; background-color:lightgray "><img style="width: 300; height: 300;" src="/media/logo.png"/></p>
+</header>
+<ul>
+<h2>
+<a href="http://localhost:8000/contactus/">[Contact Us]</a>
+<a>     Status Payment : </a>
+<a href="http://localhost:8000/waitingpayment/">Waiting Payment</a>
+<a> / </a>
+<a href="http://localhost:8000/paid/">Paid</a>
+<a> / </a>
+<a href="http://localhost:8000/reportpayment/">Report Payment</a>
+<a> / </a>
+<a href="http://localhost:8000/close/">Close</a>
+<a> / </a>
+</h2>
+    {% for order in order_list %}
+    <!-- {{order}} -->
+    <hr>
+	<div class="row">
+        <h1> Order ID : 
+        	<a  href="{{ order.id }}/">{{ order.id }}</a>
+
+        			{% if order.status_payment == "1" %} 	
+        			<div>
+							<a> Status Payment :  </a>
+							<a  style="color:green"> <th>Waiting Payment</th> </a>
+					</div>
+					{% endif %}
+
+					{% if order.status_payment == "2" %} 
+        			<div>
+							<a> Status Payment :  </a>
+							<a  style="color:green"> <th>Paid</th> </a>
+					</div>
+					{% endif %}
+
+					{% if order.status_payment == "3" %} 
+        			<div>
+							<a> Status Payment :  </a>
+							<a  style="color:red"> <th>Report Payment</th> </a>
+					</div>
+					{% endif %}
+
+					{% if order.status_payment == "4" %} 
+        			<div>
+							<a> Status Payment :  </a>
+							<a  style="color:red"> <th>Close</th> </a>
+					</div>
+					{% endif %}
+
+        </h1>
+	</div>
+    {% endfor %}
+    <hr>
+</ul>

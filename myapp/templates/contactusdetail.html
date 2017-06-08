@@ -1,0 +1,35 @@
+<title>Order Detail</title>
+<header>
+	<p style="text-align:center; background-color:lightgray "><img style="width: 300; height: 300;" src="/media/logo.png"/></p>
+</header>
+<ul>
+<hr>
+{% for ct in contactus_list %}
+
+    {% if ct.id and id %} 
+
+<div class="row">
+			<h1>
+				<a href="http://localhost:8000/admin/myapp/contactus/{{ ct.id }}/change/" > 
+					 ID : {{ ct.id }} 
+				</a>
+			</h1>
+</div>	
+		<h1>Subject : {{ ct.subject }}</h1>
+		<h1>Content : {{ ct.content }}</h1>
+
+<div class="row">
+			<h1>
+				<a href="http://localhost:8000/admin/myapp/customer/{{ ct.customer_id }}/change/" > 
+					Customer ID : {{ ct.customer }}
+				</a>
+			</h1>
+</div>
+
+    {% endif %}
+
+{% endfor %}
+<hr>
+<h1><a href="http://localhost:8000/"> << Back to Home</a></h1>
+
+</ul>

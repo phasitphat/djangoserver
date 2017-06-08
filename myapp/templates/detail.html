@@ -1,0 +1,65 @@
+<title>Order Detail</title>
+<header>
+	<p style="text-align:center; background-color:lightgray "><img style="width: 300; height: 300;" src="/media/logo.png"/></p>
+</header>
+<ul>
+<hr>
+{% for order in order_list %}
+
+    {% if order.id and id %} 
+
+<div class="row">
+			<h1>
+				<a href="http://localhost:8000/admin/myapp/order/{{ order.id }}/change/" > 
+					Order ID : {{ order.id }} 
+				</a>
+			</h1>
+</div>	
+		<h1>Created At : {{ order.created_at }}</h1>
+
+<div class="row">
+			<h1>
+				<a href="http://localhost:8000/admin/myapp/customer/{{ order.customer_id }}/change/" > 
+					Customer ID : {{ order.customer_id }}
+				</a>
+			</h1>
+</div>
+<h1>
+		{% if order.status_payment == "1" %} 
+        			<div>
+							<a> Status Payment :  </a>
+							<a  style="color:green"> <th>Waiting Payment</th> </a>
+					</div>
+		{% endif %}
+
+		{% if order.status_payment == "2" %} 
+        			<div>
+							<a> Status Payment :  </a>
+							<a  style="color:green"> <th>Paid</th> </a>
+					</div>
+		{% endif %}
+
+		{% if order.status_payment == "3" %} 
+        			<div>
+							<a> Status Payment :  </a>
+							<a  style="color:red"> <th>Report Problem</th> </a>
+					</div>
+		{% endif %}
+
+		{% if order.status_payment == "4" %} 
+        			<div>
+							<a> Status Payment :  </a>
+							<a  style="color:red"> <th>Close</th> </a>
+					</div>
+		{% endif %}
+</h1>
+		<h1><a href="http://localhost:8000/myapp/orders/{{ order.id }}/">Product In Order</a> </h1>
+		
+		<h1>Total Price : <a  style="color:red"> {{ order.total_price }} </a> Baht</h1>
+    {% endif %}
+
+{% endfor %}
+<hr>
+<h1><a href="http://localhost:8000/"> << Back to Home</a></h1>
+
+</ul>

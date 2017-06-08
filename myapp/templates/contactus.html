@@ -1,0 +1,33 @@
+<title>Order List</title>
+<header>
+    <p style="text-align:center; background-color:lightgray "><img style="width: 300; height: 300;" src="/media/logo.png"/></p>
+</header>
+<ul>
+<h2>
+<a href="http://localhost:8000/contactus/">[Contact Us]</a>
+<a>     Status Payment : </a>
+<a href="http://localhost:8000/waitingpayment/">Waiting Payment</a>
+<a> / </a>
+<a href="http://localhost:8000/paid/">Paid</a>
+<a> / </a>
+<a href="http://localhost:8000/reportpayment/">Report Payment</a>
+<a> / </a>
+<a href="http://localhost:8000/close/">Close</a>
+<a> / </a>
+<a href="http://localhost:8000/">Show All</a>
+</h2>
+    {% for ct in contactus_list %}
+    <!-- {{order}} -->
+    <hr>
+	<div class="row">
+            <h1>  ID : 
+                <a  href="http://localhost:8000/admin/myapp/contactus/{{ ct.id }}/change/">{{ ct.id }}</a>
+            </h1>
+            <h1>  
+             Subject : {{ ct.subject }}
+            </h1>
+        </h1>
+	</div>
+    {% endfor %}
+    <hr>
+</ul>
